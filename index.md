@@ -7,11 +7,27 @@ Building a complete application with API is always a challenging job since every
 We will first build a small RESTful Rails api that serves data which later will be consumed by our React Application.
 
 
-### Build Rails application to consume data from react  
+### Building Rails application to consume data from react  
 
 Rails 5 have evolved a lot where you can now have an option to creat api only. This option removes all the middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
 
+```markdown
+Create Rails application
+`$ rails new my_api --api`
+# Header 1
+## Header 2
+### Header 3
 
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
 
 
 
