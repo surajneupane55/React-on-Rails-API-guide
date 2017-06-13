@@ -1,8 +1,14 @@
 ## Welcome to React-on-Rails-API Guide
 
-Building a complete app with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experiences I encountered during building a simple React on Rails API. 
+### 13.6.2017 
 
-We will first build a small Rails app that serves data for our React application. 
+Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experience I encountered during building a simple React on Rails API. 
+
+We will first build a small Rails api that serves data which later will be consumed by our React frontend.
+
+Rails 5 have evolved a lot as now we can choose either to build an application or api. Since we are interested to serve data  
+
+
 
 
 
