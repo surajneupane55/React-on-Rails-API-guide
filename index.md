@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to React on Rails API Guide
 
 You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
