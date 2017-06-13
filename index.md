@@ -1,6 +1,6 @@
-## Welcome to React on Rails API Guide
+## Welcome to React-on-Rails-API Guide
 
-You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Building a complete app with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experiences I encountered during building a simple React on Rails API. together and works its way.  Learning to code in a new language like React is mostly exciting while often can get frustrating. This blog is a small effort to encourage beginners like me to get to go. You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
