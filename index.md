@@ -4,18 +4,28 @@
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experience I encountered during building a simple React on Rails API. 
 
-We will first build a small RESTful Rails api that serves data which later will be consumed by our React Application.
+We will first build a small RESTful JSON Rails api that serves data which later will be consumed by our React Application.
 
 
-### Building Rails application to consume data from react  
+### Building Rails application to consume data from React  
 
-Rails 5 have evolved a lot where you can now have an option to creat api only. This option removes all the middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
+Rails 5 have evolved a lot where we can now have an option to creat api only. This option removes all the Middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
 
-Our application will have resource name record with following attributes: name, email and phone.
+Our application will have resource name Record with following attributes: name, email and phone.
 
 ```markdown
 Create Rails application
+
 `$ rails new my_api --api`
+
+
+Create Resource for Record 
+
+`$ rails g model Record name:string email:string phone:integer`
+
+
+
+
 
 # Header 1
 ## Header 2
