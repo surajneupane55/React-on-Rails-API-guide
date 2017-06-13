@@ -6,6 +6,8 @@ Building a complete application with API is always a challenging job since every
 
 We will first build a small Rails api that serves data which later will be consumed by our React frontend.
 
+### Build Rails application to consume data  
+
 Rails 5 have evolved a lot as now we can choose either to build an application or api. Since we are interested to serve data  
 
 
