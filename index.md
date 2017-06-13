@@ -4,14 +4,12 @@
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experience I encountered during building a simple React on Rails API. 
 
-We will first build a small Rails api that serves data which later will be consumed by our React frontend.
-
-### Build Rails application to consume data  
-
-Rails 5 have evolved a lot as now we can choose either to build an application or api. Since we are interested to serve data  
+We will first build a small RESTful Rails api that serves data which later will be consumed by our React Application.
 
 
+### Build Rails application to consume data from react  
 
+Rails 5 have evolved a lot where you can now have an option to creat api only. This option removes all the middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
 
 
 
@@ -26,7 +24,13 @@ Rails 5 have evolved a lot as now we can choose either to build an application o
 
 
 
-together and works its way.  Learning to code in a new language like React is mostly exciting while often can get frustrating. This blog is a small effort to encourage beginners like me to get to go. You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+
+
+
+
+
+
+ You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
