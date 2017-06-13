@@ -23,24 +23,11 @@ Create Resource for Record
 
 `$ rails g model Record name:string email:string phone:integer`
 
+Migration to database
 
+`$ rails db:create`
+`$ rails db:migrate`
 
-
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 
 
 
