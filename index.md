@@ -87,7 +87,9 @@ end
 
 Since any user data is handle by user_token#create Controller we can now simply use a helper method to authenicate our Record resource:
 
-```class RecordsController < ApplicationController
+```
+
+class RecordsController < ApplicationController
   before_action :authenticate_user
 
   # GET /records
@@ -96,6 +98,7 @@ Since any user data is handle by user_token#create Controller we can now simply 
 
     render json: @records
   end
+  
 ```
 
 
