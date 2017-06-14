@@ -65,6 +65,14 @@ Not long ago securing an api was a big deal where the user need to send their cr
 
 After a long debate Devise dropped it token authentication for Rails because of its security vulnerability. Although Devise is still the most secure authenication handler in Rails application with session. 
 
+JWT is the most simple best way to communicate with server from our frontend. The user credentials are send to Rails application which generate JSON token those token are send back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails api decode the token and let us access the Record Resource. The token was never stored in database and when user logOut the local storage of browser is cleared making it required for new token for different session. 
+
+JWT never violate the basic principle of API where it should be stateless and stand-alone. Stateless in a sense that no cookies or session was used in anyway to authenticate the user. Stand-alone in a way that RESTful CURD JSON request was served without touching the database to authenticate the request. 
+
+Ohhh... before I continue how to implement JWT for our rails app let me tell you one important thing 
+
+Since our api is independent our rails app expect a CORS handling for making cross-origin AJAX possible so don't forget to uncomment ``` gem 'rack-cors' ```
+
 
 
 
