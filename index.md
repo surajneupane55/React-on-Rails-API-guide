@@ -54,7 +54,19 @@ The other thing we are interested is to serialize our Record model. We want to m
 
 ``` gem 'active_model_serializers', '~> 0.10.0' ```
 
-. There is a great [documentation](http://www.rubydoc.info/gems/active_model_serializers) which can be followed to get more information.
+There is a great [documentation](http://www.rubydoc.info/gems/active_model_serializers) which can be followed to get more information.
+
+
+### Lets take a time to talk about JWT(JSON Web Token)
+
+In our Record model we have some private data of user like phone and email. It is our responsibility to secure our api so only the authenticated user can get access to the Record Resource. 
+
+Not long ago securing an api was a big deal where the user need to send their credentials and the token was generated and stored in database and every request need to fetch the token from database. Even worst was when we shared our api-token and used later to verify the authentic user. There is nothing wrong using token but the token have a tricky nature like when to make them expired or not, should we fetch the token from database or even should we store it in database.
+
+After a long debate Devise dropped it token authentication for Rails because of its security vulnerability. Although Devise is still the most secure authenication handler in Rails application with session. 
+
+
+
 
 
 
