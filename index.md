@@ -101,8 +101,70 @@ class RecordsController < ApplicationController
   
 ```
 
+### Pushing the API to HEROKU cloud
 
+The most easy way to test our api is to deploy it to the cloud platform. I am using Heroku Cloud. It is farely simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
+Here is the api of this [demo application](https://boiling-scrubland-97450.herokuapp.com/) 
+Sounds crazy but it says page can't be found, but it makes sense we have no any view implemented so the api can't serve us any view.
+
+But lets create a new User in heroku console ``` heroku console ```
+
+```
+User.create(email:'abc@123.com',password:'securepassword')
+D, [2017-06-14T09:59:36.139744 #4] DEBUG -- :    (0.8ms)  BEGIN
+D, [2017-06-14T09:59:36.146241 #4] DEBUG -- :   SQL (4.6ms)  INSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "abc@123.com"], ["password_digest", "$2a$10$vbQPMjTWbclF6GKVR1.mEekxYTKePEz/tpFWKwcBjT6O/F/w4kfhG"], ["created_at", "2017-06-14 09:59:36.140222"], ["updated_at", "2017-06-14 09:59:36.140222"]]
+D, [2017-06-14T09:59:36.148302 #4] DEBUG -- :    (1.4ms)  COMMIT
+=> #<User id: 2, email: "abc@123.com", password_digest: "$2a$10$vbQPMjTWbclF6GKVR1.mEekxYTKePEz/tpFWKwcBjT6...", created_at: "2017-06-14 09:59:36", updated_at: "2017-06-14 09:59:36">
+```
+We have successfully created user now we have to get the api-token to access the Record so lets logIn as the user above:
+
+```
+surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -H "Content-Type: application/json" -X POST -d '{"auth":{"email":"abc@123.com","password":"securepassword"}}' https://boiling-scrubland-97450.herokuapp.com/user_token
+{"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjIxNjksInN1YiI6Mn0.aI9tvpyS6DtyAC_yY-pjbN9_mKXSNXoksOc9aYXAcho"}
+
+```
+
+Finally we got our jwt token back 
+```
+{"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjI2MTksInN1YiI6Mn0.WdjVw3InB9TbtpppymQ9C_3WypBC1oeaSd5sp7d2CdQ"}
+
+```
+
+We are now able to authenticate our any CRUD request on Record Resource because we have valid jwt. So lets do that:
+
+```
+surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -i https://boiling-scrubland-97450.herokuapp.com/records  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjI2MTksInN1YiI6Mn0.WdjVw3InB9TbtpppymQ9C_3WypBC1oeaSd5sp7d2CdQ"
+HTTP/1.1 200 OK
+Server: Cowboy
+Date: Wed, 14 Jun 2017 10:31:25 GMT
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+Etag: W/"7857402c0029e1f4e397c717205f8a7b"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 05e9bce8-f3b2-4306-9920-ae57d7c37f75
+X-Runtime: 0.031173
+Vary: Origin
+Transfer-Encoding: chunked
+Via: 1.1 vegur
+
+[{"id":1,"username":"abc123","email":"abc@123.com","phone":12345}]surajs-MacBook-Pro:react-app-challenge-api surajnew55$
+
+```
+
+Wow..... that was great we got a list of Record with the use of token of jwt. 
+
+Also we must get 401 Unauthorised with wrong jwt 
+
+```
+surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -i https://boiling-scrubland-97450.herokuapp.com/records  -H "Authorization: BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjIxNjksInN1YiI6Mn0.aI9tvpyS6DtyAC_yY-pjbN9_mKXSNXoksOc9aYXAcho"
+HTTP/1.1 401 Unauthorized
+
+```
+
+Finally we have successfully build an json api deployed it to heroku cloud and it is ready to serve our React application.
+
+### The new world of React
 
 
 
