@@ -2,7 +2,7 @@
 
 ### 13.6.2017 
 
-##### TL;DR [Github] (https://github.com/surajneupane55/rails-json-api-jwt-auth) 
+TL;DR [Github] (https://github.com/surajneupane55/rails-json-api-jwt-auth) 
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experience I encountered during building a simple React on Rails API. 
 
