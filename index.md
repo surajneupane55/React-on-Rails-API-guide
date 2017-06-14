@@ -42,14 +42,13 @@ Next we want to set our routes in ```config/routes```
 
 Rails.application.routes.draw do
   resources :records
-  #resources :users, only: [:create]
-  #post 'user_token' => 'user_token#create'
-  #mount Knock::Engine => "/knock"
 end
 
 ```
 
+If you notice above we don't define any root_path and that makes sense when we want to make our api stand-alone, stateless or sessionless which is holy grail of api functionality.
 
+The other thing we are interested is to serialize our Record model. We want to make our json more readable, understandable and uniform which is taken care by ``` gem 'active_model_serializers', '~> 0.10.0' ``` . There is a great [documentation](http://www.rubydoc.info/gems/active_model_serializers) which can be followed to get more information. 
 
 
 
