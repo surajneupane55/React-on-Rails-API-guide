@@ -3,6 +3,7 @@
 ### 13.6.2017 
 
 TL;DR [Github rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth)
+
 [Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
 
@@ -25,12 +26,26 @@ Create Rails application
 
 Create Resource for Record 
 
-`$ rails g model Record name:string email:string phone:integer`
+`$ rails g resource Record name:string email:string phone:integer`
 
 Migration to database
 
 `$ rails db:create`
 `$ rails db:migrate`
+
+```
+
+Next we want to set our routes in ```config/routes``` 
+
+
+``` 
+
+Rails.application.routes.draw do
+  resources :records
+  #resources :users, only: [:create]
+  #post 'user_token' => 'user_token#create'
+  #mount Knock::Engine => "/knock"
+end
 
 ```
 
