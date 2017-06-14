@@ -1,4 +1,4 @@
-## Welcome to React-on-Rails-API Guide
+# Welcome to React-on-Rails-API Guide
 
 ### 13.6.2017 
 
@@ -14,7 +14,7 @@ Building a complete application with API is always a challenging job since every
 We will first build a small RESTful JSON Rails api that serves data which later will be consumed by our React Application.
 
 
-### Building Rails application to consume data from React  
+## Building Rails application to consume data from React  
 
 Rails 5 have evolved a lot where we can now have an option to creat api only. This option removes all the Middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
 
@@ -164,7 +164,7 @@ HTTP/1.1 401 Unauthorized
 
 Finally we have successfully build an json api deployed it to heroku cloud and it is ready to serve our React application.
 
-### The new world of React
+# The new world of React
 
 
 
