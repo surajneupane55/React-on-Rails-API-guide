@@ -2,8 +2,8 @@
 
 ### 13.6.2017 
 
-TL;DR [Github rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth)
-
+TL;DR 
+[Github rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth)
 [Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
 
