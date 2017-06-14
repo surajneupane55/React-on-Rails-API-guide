@@ -73,6 +73,31 @@ Ohhh... before I continue how to implement JWT for our rails app let me tell you
 
 Since our api is independent our rails app expect a CORS handling for making cross-origin AJAX possible so don't forget to uncomment ``` gem 'rack-cors' ```
 
+Implementing JWT in Rails is done with ```gem 'Knock' ```. Here is the [documentation](https://github.com/nsarno/knock) after implementing this now we have the USER Resource added to our database. The routes have now changed and looks like this: 
+
+```
+Rails.application.routes.draw do
+  resources :records
+  resources :users, only: [:create]
+  post 'user_token' => 'user_token#create'
+  mount Knock::Engine => "/knock"
+end
+
+```
+
+Since any user data is handle by user_token#create Controller we can now simply use a helper method to authenicate our Record resource:
+
+```class RecordsController < ApplicationController
+  before_action :authenticate_user
+
+  # GET /records
+  def index
+    @records = Record.all
+
+    render json: @records
+  end
+```
+
 
 
 
