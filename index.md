@@ -2,8 +2,10 @@
 
 ### 13.6.2017 
 
-TL;DR 
+TL;DR
+
 [Github rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth)
+
 [Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
 
@@ -48,7 +50,14 @@ end
 
 If you notice above we don't define any root_path and that makes sense when we want to make our api stand-alone, stateless or sessionless which is holy grail of api functionality.
 
-The other thing we are interested is to serialize our Record model. We want to make our json more readable, understandable and uniform which is taken care by ``` gem 'active_model_serializers', '~> 0.10.0' ``` . There is a great [documentation](http://www.rubydoc.info/gems/active_model_serializers) which can be followed to get more information. 
+The other thing we are interested is to serialize our Record model. We want to make our json more readable, understandable and uniform which is taken care by
+
+``` gem 'active_model_serializers', '~> 0.10.0' ```
+
+. There is a great [documentation](http://www.rubydoc.info/gems/active_model_serializers) which can be followed to get more information.
+
+
+
 
 
 
