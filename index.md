@@ -63,9 +63,9 @@ In our Record model we have some private data of user, such as phone and email. 
 
 Not long ago, securing an API was a big deal where the user needed to send their credentials and the token was generated and stored in database and every request needed to fetch the token from database. Even worst, we shared our API-Token which was later used to verify the authentic user. There is nothing wrong in using token but the token has a tricky nature like when to make them expired or not, should we fetch the token from database or should we even store it in database.
 
-After a long debate Devise dropped, token authentication for Rails because of its security vulnerability. Although, Devise is still the most secure authenication handler in Rails application with session. 
+After a long debate Devise dropped token authentication for Rails because of its security vulnerability. Although, Devise is still the most secure authenication handler in Rails application with session. 
 
-JWT is the most simple and the best way to communicate with server from our frontend. The user credentials are sent to Rails application which generate JSON token. Those tokens are sent back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails API decodes the token and lets us access the Record Resource. The token was never stored in database and when user loggedout the local storage of browser is cleared making it necessary for new token for different session. 
+JWT is simple and the best way to communicate with server from our frontend. The user credentials are sent to Rails application which generate JSON token. Those tokens are sent back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails API decodes the token and lets us access the Record Resource. The token was never stored in database and when user loggedout the local storage of browser is cleared making it necessary for new token for different session. 
 
 JWT never violates the basic principle of API, where it should be stateless and stand-alone. Stateless in a sense that no cookies or session was used in anyway to authenticate the user and stand-alone, in a way that RESTful CURD JSON request was served without touching the database to authenticate the request. 
 
