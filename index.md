@@ -59,9 +59,9 @@ There is a great [documentation](http://www.rubydoc.info/gems/active_model_seria
 
 ### Lets take a time to talk about JWT(JSON Web Token)
 
-In our Record model we have some private data of user like phone and email. It is our responsibility to secure our API so only the authenticated user can get access to the Record Resource. 
+In our Record model we have some private data of user, such as phone and email. It is our responsibility to secure our API, so only the authenticated user can get access to the Record Resource. 
 
-Not long ago securing an API was a big deal where the user needed to send their credentials and the token was generated and stored in database and every request needed to fetch the token from database. Even worst, was when we shared our API-Token and used later to verify the authentic user. There is nothing wrong in using token but the token has a tricky nature like when to make them expired or not, should we fetch the token from database or should we even store it in database.
+Not long ago, securing an API was a big deal where the user needed to send their credentials and the token was generated and stored in database and every request needed to fetch the token from database. Even worst, we shared our API-Token which was later used to verify the authentic user. There is nothing wrong in using token but the token has a tricky nature like when to make them expired or not, should we fetch the token from database or should we even store it in database.
 
 After a long debate Devise dropped, token authentication for Rails because of its security vulnerability. Although, Devise is still the most secure authenication handler in Rails application with session. 
 
