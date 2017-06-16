@@ -48,9 +48,9 @@ end
 
 ```
 
-If you notice above we don't define any root_path and that makes sense when we want to make our api stand-alone, stateless or sessionless which is holy grail of api functionality.
+If you noticed above we don't define any root_path and that makes sense when we want to make our api stand-alone, stateless or sessionless which is holy grail of API functionality.
 
-The other thing we are interested is to serialize our Record model. We want to make our json more readable, understandable and uniform which is taken care by
+The other thing we are interested in to serialize our Record model. We want to make our JSON more readable, understandable and uniform which is taken care by
 
 ``` gem 'active_model_serializers', '~> 0.10.0' ```
 
@@ -59,21 +59,21 @@ There is a great [documentation](http://www.rubydoc.info/gems/active_model_seria
 
 ### Lets take a time to talk about JWT(JSON Web Token)
 
-In our Record model we have some private data of user like phone and email. It is our responsibility to secure our api so only the authenticated user can get access to the Record Resource. 
+In our Record model we have some private data of user like phone and email. It is our responsibility to secure our API so only the authenticated user can get access to the Record Resource. 
 
-Not long ago securing an api was a big deal where the user need to send their credentials and the token was generated and stored in database and every request need to fetch the token from database. Even worst was when we shared our api-token and used later to verify the authentic user. There is nothing wrong using token but the token have a tricky nature like when to make them expired or not, should we fetch the token from database or even should we store it in database.
+Not long ago securing an API was a big deal where the user needed to send their credentials and the token was generated and stored in database and every request needed to fetch the token from database. Even worst, was when we shared our API-Token and used later to verify the authentic user. There is nothing wrong in using token but the token has a tricky nature like when to make them expired or not, should we fetch the token from database or should we even store it in database.
 
-After a long debate Devise dropped it token authentication for Rails because of its security vulnerability. Although Devise is still the most secure authenication handler in Rails application with session. 
+After a long debate Devise dropped, token authentication for Rails because of its security vulnerability. Although, Devise is still the most secure authenication handler in Rails application with session. 
 
-JWT is the most simple best way to communicate with server from our frontend. The user credentials are send to Rails application which generate JSON token those token are send back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails api decode the token and let us access the Record Resource. The token was never stored in database and when user logOut the local storage of browser is cleared making it required for new token for different session. 
+JWT is the most simple and the best way to communicate with server from our frontend. The user credentials are sent to Rails application which generate JSON token. Those tokens are sent back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails API decodes the token and lets us access the Record Resource. The token was never stored in database and when user loggedout the local storage of browser is cleared making it necessary for new token for different session. 
 
-JWT never violate the basic principle of API where it should be stateless and stand-alone. Stateless in a sense that no cookies or session was used in anyway to authenticate the user. Stand-alone in a way that RESTful CURD JSON request was served without touching the database to authenticate the request. 
+JWT never violates the basic principle of API, where it should be stateless and stand-alone. Stateless in a sense that no cookies or session was used in anyway to authenticate the user and stand-alone, in a way that RESTful CURD JSON request was served without touching the database to authenticate the request. 
 
-Ohhh... before I continue how to implement JWT for our rails app let me tell you one important thing 
+Ohhh... before I continue how to implement JWT for our rails App, let me tell you one important thing: 
 
-Since our api is independent our rails app expect a CORS handling for making cross-origin AJAX possible so don't forget to uncomment ``` gem 'rack-cors' ```
+Since our API is independent our rails App expects a CORS handling for making cross-origin AJAX possible. So, don't forget to uncomment ``` gem 'rack-cors' ```
 
-Implementing JWT in Rails is done with ```gem 'Knock' ```. Here is the [documentation](https://github.com/nsarno/knock) after implementing this now we have the USER Resource added to our database. The routes have now changed and looks like this: 
+Implementing JWT in Rails is done with ```gem 'Knock' ```. Here is the [documentation](https://github.com/nsarno/knock) after implementing this. Now, we have the USER Resource added to our database. The routes have now changed and look like this: 
 
 ```
 Rails.application.routes.draw do
@@ -85,7 +85,7 @@ end
 
 ```
 
-Since any user data is handle by user_token#create Controller we can now simply use a helper method to authenicate our Record resource:
+Since any user data is handled by user_token#create Controller, we can now simply use a helper method to authenicate our Record resource:
 
 ```
 
@@ -103,12 +103,12 @@ class RecordsController < ApplicationController
 
 ### Pushing the API to HEROKU cloud
 
-The most easy way to test our api is to deploy it to the cloud platform. I am using Heroku Cloud. It is farely simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
+The easiest way to test our API is to deploy it to the cloud platform. I am using Heroku Cloud. It is farely simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
-Here is the api of this [demo application](https://boiling-scrubland-97450.herokuapp.com/) 
-Sounds crazy but it says page can't be found, but it makes sense we have no any view implemented so the api can't serve us any view.
+Here is the API of this [demo application](https://boiling-scrubland-97450.herokuapp.com/) which 
+sounds crazy but it says page can't be found. But, it makes sense we have not implemented any view so the API can't serve us any view.
 
-But lets create a new User in heroku console ``` heroku console ```
+But, let's create a new user in  ``` heroku console ```
 
 ```
 User.create(email:'abc@123.com',password:'securepassword')
@@ -117,7 +117,7 @@ D, [2017-06-14T09:59:36.146241 #4] DEBUG -- :   SQL (4.6ms)  INSERT INTO "users"
 D, [2017-06-14T09:59:36.148302 #4] DEBUG -- :    (1.4ms)  COMMIT
 => #<User id: 2, email: "abc@123.com", password_digest: "$2a$10$vbQPMjTWbclF6GKVR1.mEekxYTKePEz/tpFWKwcBjT6...", created_at: "2017-06-14 09:59:36", updated_at: "2017-06-14 09:59:36">
 ```
-We have successfully created user now we have to get the api-token to access the Record so lets logIn as the user above:
+We have successfully created user, now we have to get the Api-token to access the Record so let's login as the user above:
 
 ```
 surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -H "Content-Type: application/json" -X POST -d '{"auth":{"email":"abc@123.com","password":"securepassword"}}' https://boiling-scrubland-97450.herokuapp.com/user_token
@@ -125,13 +125,13 @@ surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -H "Content-Type: ap
 
 ```
 
-Finally we got our jwt token back 
+Finally we got our JWT token back 
 ```
 {"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjI2MTksInN1YiI6Mn0.WdjVw3InB9TbtpppymQ9C_3WypBC1oeaSd5sp7d2CdQ"}
 
 ```
 
-We are now able to authenticate our any CRUD request on Record Resource because we have valid jwt. So lets do that:
+We are now able to authenticate our CRUD request on Record Resource because we have valid JWT. So, let's do that:
 
 ```
 surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -i https://boiling-scrubland-97450.herokuapp.com/records  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjI2MTksInN1YiI6Mn0.WdjVw3InB9TbtpppymQ9C_3WypBC1oeaSd5sp7d2CdQ"
@@ -152,9 +152,9 @@ Via: 1.1 vegur
 
 ```
 
-Wow..... that was great we got a list of Record with the use of token of jwt. 
+Wow..... that was great. We got a list of Record with the use of token of JWT. 
 
-Also we must get 401 Unauthorised with wrong jwt 
+Also, we must get 401 Unauthorized with wrong JWT 
 
 ```
 surajs-MacBook-Pro:react-app-challenge-api surajnew55$ curl -i https://boiling-scrubland-97450.herokuapp.com/records  -H "Authorization: BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc1MjIxNjksInN1YiI6Mn0.aI9tvpyS6DtyAC_yY-pjbN9_mKXSNXoksOc9aYXAcho"
@@ -162,7 +162,7 @@ HTTP/1.1 401 Unauthorized
 
 ```
 
-Finally we have successfully build an json api deployed it to heroku cloud and it is ready to serve our React application.
+Finally we have successfully built an JSON API deployed it to Heroku cloud and it is ready to serve our React application.
 
 # The new world of React
 
