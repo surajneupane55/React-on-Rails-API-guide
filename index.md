@@ -9,14 +9,14 @@ TL;DR
 [Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
 
-Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will take you through the experience I encountered during building a simple React on Rails API. 
+Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will walk you through the experience I encountered during building a simple React on Rails API. 
 
 We will first build a small RESTful JSON Rails api that serves data which later will be consumed by our React Application.
 
 
 ## Building Rails application to consume data from React  
 
-Rails 5 have evolved a lot where we can now have an option to creat api only. This option removes all the Middleware which are not necessary unlike native rails application. For example: Views are never created when we choose to create api application.
+Rails 5 has evolved a lot where we can now have an option to create API only. This option removes all the middleware which is not necessary unlike native rails application. For example: Views are never created when we choose to create API application.
 
 Our application will have resource name Record with following attributes: name, email and phone.
 
@@ -48,9 +48,9 @@ end
 
 ```
 
-If you noticed above we don't define any root_path and that makes sense when we want to make our api stand-alone, stateless or sessionless which is holy grail of API functionality.
+If you noticed above we didn't define any root_path and that makes sense when we want to make our API stand-alone, stateless or sessionless which is holy grail of API functionality.
 
-The other thing we are interested in to serialize our Record model. We want to make our JSON more readable, understandable and uniform which is taken care by
+The other thing we are interested is to serialize our Record model. We want to make our JSON more readable, understandable and uniform which is taken care by
 
 ``` gem 'active_model_serializers', '~> 0.10.0' ```
 
