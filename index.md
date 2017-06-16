@@ -11,7 +11,7 @@ TL;DR
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will walk you through the experience I encountered during building a simple React on Rails API. 
 
-We will first build a small RESTful JSON Rails api that serves data which later will be consumed by our React Application.
+We will first build a small RESTful JSON Rails API that serves data which later will be consumed by our React Application.
 
 
 ## Building Rails application to consume data from React  
@@ -50,7 +50,7 @@ end
 
 If you noticed above we didn't define any root_path and that makes sense when we want to make our API stand-alone, stateless or sessionless which is holy grail of API functionality.
 
-The other thing we are interested is to serialize our Record model. We want to make our JSON more readable, understandable and uniform which is taken care by
+The other thing we are interested in is to serialize our Record model. We want to make our JSON more readable, understandable and uniform which is taken care by
 
 ``` gem 'active_model_serializers', '~> 0.10.0' ```
 
