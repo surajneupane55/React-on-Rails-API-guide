@@ -65,13 +65,13 @@ Not long ago, securing an API was a big deal where the user needed to send their
 
 After a long debate Devise dropped token authentication for Rails because of its security vulnerability. Although, Devise is still the most secure authenication handler in Rails application with session. 
 
-JWT is simple and the best way to communicate with server from our frontend. The user credentials are sent to Rails application which generate JSON token. Those tokens are sent back to frontend which store them in local storage. Now, with every CURD request we attach this token and our rails API decodes the token and lets us access the Record Resource. The token was never stored in database and when user loggedout the local storage of browser is cleared making it necessary for new token for different session. 
+JWT is simple and the best way to communicate with server from our frontend. The user credentials are sent to Rails application which generates JSON token. Those tokens are sent back to frontend which stores them in local storage. Now, with every CURD request, we attach this token and our rails API decodes the token and lets us access the Record Resource. The token was never stored in database and when user logged out the local storage of browser is cleared making it necessary for new token for different user. 
 
 JWT never violates the basic principle of API, where it should be stateless and stand-alone. Stateless in a sense that no cookies or session was used in anyway to authenticate the user and stand-alone, in a way that RESTful CURD JSON request was served without touching the database to authenticate the request. 
 
-Ohhh... before I continue how to implement JWT for our rails App, let me tell you one important thing: 
+Ohhh... before I continue about how to implement JWT for our rails App, let me tell you one important thing: 
 
-Since our API is independent our rails App expects a CORS handling for making cross-origin AJAX possible. So, don't forget to uncomment ``` gem 'rack-cors' ```
+Since our API is independent our rails App expects a CORS handling for making cross-origin AJAX possible. So, don't forget to uncomment and bundle ``` gem 'rack-cors' ```
 
 Implementing JWT in Rails is done with ```gem 'Knock' ```. Here is the [documentation](https://github.com/nsarno/knock) after implementing this. Now, we have the USER Resource added to our database. The routes have now changed and look like this: 
 
