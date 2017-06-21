@@ -241,7 +241,7 @@ export default class Header extends React.Component {
 React Router v4 was just realesed when I started this project. Although, there was not much blog written by public however [react training](https://reacttraining.com/react-router/web/guides/philosophy) site is the best place to start. React Router now is imported from ```react-router-dom``` where ```history``` from ```createBrowserHistory``` is passed as props and can be accessed from other component. Also all our routes are now stacked inside ```<Router> ``` irrespective of protected component or not. There is a new way to authenticate ```Route```. i.e ```<Redirect>```. Now lets look our ```index.js``` after implementing above React Router feature:
  
 ```
-ort React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom'
 import {  BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import {createBrowserHistory} from 'history';
@@ -279,6 +279,56 @@ app);
 registerServiceWorker();
 
 ``` 
+We can see above how we have defined ```<Redirect>``` inside ```<Route>``` and checked with ```loggedIn``` method to check if user is authorised or not. 
+
+```loggedIn```method is defined inside ```LoginAction``` component. Its main task is to make sure the user have valid JWT token stored in local storage. The ```loggedIn``` method looks like this:
+
+```
+export default {
+
+    loggedIn: () => {
+        let jwt = localStorage.getItem('jwt');
+        if (jwt !== null) {
+            return true;
+        }
+        return false;
+    }
+} 
+
+```
+
+By now we have successfully managed to get inside ```Protected``` component. Protected component is the parent for ```CreateRecord```, ```ShowRecord``` and ```RecordItem```. RecordItem component handels each record and return the list of Record with the following code: 
+
+```
+return _.map(this.props.records, (record) => <RecordListItem key={record.id} {...record}
+updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>); 
+  
+```
+  Above we have passed all the props that handle a single record from our ```Protected``` component, maped each Record and return as  ```renderRecord ```. 
+  
+  Logic for sorting Record list is managed by ```ShowRecord``` component and replacing ```this.props.records``` with sorted list. The codes looks as following:
+  
+  ``` sortByName() {
+
+        var itemsList = [];
+        _.map(this.props.records, (record) => itemsList.push(record));
+        itemsList.sort(function (a, b) {
+            return a.username.toLowerCase() > b.username.toLowerCase()
+        });
+        return itemsList;
+
+    }
+
+    sortedList() {
+        this.setState({isSorted: true})
+    } ```
+    
+    We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.
+            
+                                                      
+                                                           
+
+
 
 
 
