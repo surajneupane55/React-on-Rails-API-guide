@@ -172,16 +172,71 @@ As a beginner, we should follow [React official document](https://facebook.githu
 
 The concept of Component and virtual DOM makes the React stand alone from other javascript library. Component are the building blocks of React app where each feature is segregated from one another.
 
-In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, lets follow the architect of application from UML diagram below:   
+In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, our application will have two parent component ```Layout``` and ```Protected```. Layout component will handle all the view before the app is authenticated. While, Protected component will manage out Record resource along with CURD request on API. 
 
-![Image of Yaktocat](https://ibb.co/eJGiJQ)
+This is how our ```Layout```looks like so far:
+
+```
+import React from 'react';
+
+import logo from '../logo.svg';
+
+import '../App.css';
+import '../Skeleton.css';
+import '../index.css';
 
 
+import Body from './Body';
+import Footer from './Footer'
+import Header from './Header';
 
 
+export default class Layout extends React.Component {
 
 
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React on Rails API</h2>
+                </div>
+                <Body/>
+                <Header/><br/><br/>
+                <Footer/>
+            </div>
+        );
+    }
+}
 
+
+```
+
+It is parent to static component view like ```Body``` and ```Footer``` and ```Header``` with ```Links```
+
+Lets take a moment to look how ```Header``` component is organised:
+
+``` import React from 'react';
+import { Link } from 'react-router-dom'
+
+
+export default class Header extends React.Component {
+    render() {
+        return (
+
+            <header>
+                <br/>
+                <div className="container">
+                    <div className="row">
+                        <Link to='login' className="btn button-primary"><strong><h5>SignIn</h5></strong></Link>
+                        {/*<Link to='signup'  className="btn  six columns" disabled>SignUp</Link>*/}
+                    </div>
+                </div>
+            </header>
+        );
+    }
+}
+```
 
 
 
