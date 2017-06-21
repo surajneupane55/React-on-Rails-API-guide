@@ -168,11 +168,11 @@ Finally we have successfully built an JSON API deployed it to Heroku cloud and i
 
 When I started this project I was totally new to React. I didn't know much about the core concept. I was confused either to use some architect like flux or redux. The truth is, I was overwhelmed with lots of information. But, eventually when all this information settled, React was one fun concept that circle around ```props``` and ```state```. Although, I have made a similar [CRUD single page todo application](https://radiant-coast-44956.herokuapp.com/) on angularjs but the experience was much fun and easy with React technology.
 
-As a beginner, we should follow [React official document](https://facebook.github.io/react/) and video tutorials. Starting point is to clone the ```create-react-app```. 
+As a beginner, we should follow [React official documentation](https://facebook.github.io/react/) and video tutorials. The starting point is to clone the ```create-react-app```. 
 
-The concept of Component and virtual DOM makes the React stand alone from other javascript library. Component are the building blocks of React app where each feature is segregated from one another.
+The concept of Component and virtual DOM makes the React stand alone from other javascript library. Component is the building blocks of React app where each feature is segregated from one another.
 
-In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, our application will have two parent component ```Layout``` and ```Protected```. Layout component will handle all the view before the app is authenticated. While, Protected component will manage out Record resource along with CURD request on API. 
+In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, our application will have two parent component ```Layout``` and ```Protected```. Layout component will handle all the views before the app is authenticated. While, Protected component will manage out Record resource along with CURD request on the API. 
 
 This is how our ```Layout```looks like so far:
 
@@ -214,7 +214,7 @@ export default class Layout extends React.Component {
 
 It is parent to static component view like ```Body```, ```Footer``` and ```Header``` with ```Links```
 
-Lets take a moment to look how ```Header``` component is organised:
+Let's take a moment to look how ```Header``` component is organized:
 
 ```import React from 'react';
 import { Link } from 'react-router-dom'
@@ -238,7 +238,7 @@ export default class Header extends React.Component {
 ```
 #Evolution of React Router v4
 
-React Router v4 was just realesed when I started this project. Although, there was not much blog written by public however [react training](https://reacttraining.com/react-router/web/guides/philosophy) site is the best place to start. React Router now is imported from ```react-router-dom``` where ```history``` from ```createBrowserHistory``` is passed as props and can be accessed from other component. Also all our routes are now stacked inside ```<Router> ``` irrespective of protected component or not. There is a new way to authenticate ```Route```. i.e ```<Redirect>```. Now lets look our ```index.js``` after implementing above React Router feature:
+React Router v4 was just realized when I started this project. Although, there was not much blog support written by public, however [react training](https://reacttraining.com/react-router/web/guides/philosophy) site is the best place to start. React Router now is imported from ```react-router-dom``` where ```history``` from ```createBrowserHistory``` is passed as props and can be accessed from another component. Also, all our routes are now stacked inside ```<Router> ``` irrespective of protected component or not. There is a new way to authenticate ```Route```. i.e ```<Redirect>```. Now lets look our ```index.js``` after implementing above React Router feature:
  
 ```
 import React from 'react';
@@ -279,9 +279,9 @@ app);
 registerServiceWorker();
 
 ``` 
-We can see above how we have defined ```<Redirect>``` inside ```<Route>``` and checked with ```loggedIn``` method to check if user is authorised or not. 
+We can see above how we have defined ```<Redirect>``` inside ```<Route>``` and checked with ```loggedIn``` method to check if user is authorized or not. 
 
-```loggedIn```method is defined inside ```LoginAction``` component. Its main task is to make sure the user have valid JWT token stored in local storage. The ```loggedIn``` method looks like this:
+```loggedIn```method is defined inside ```LoginAction``` component. Its main task is to make sure the user has valid JWT token stored in local storage. The ```loggedIn``` method looks like this:
 
 ```
 export default {
@@ -297,16 +297,16 @@ export default {
 
 ```
 
-By now we have successfully managed to get inside ```Protected``` component. Protected component is the parent for ```CreateRecord```, ```ShowRecord``` and ```RecordItem```. RecordItem component handels each record and return the list of Record with the following code: 
+By now we have successfully managed to get inside the ```Protected``` component. Protected component is the parent for ```CreateRecord```, ```ShowRecord``` and ```RecordItem```. RecordItem component handles each record and return the list of Record with the following code: 
 
 ```
 return _.map(this.props.records, (record) => <RecordListItem key={record.id} {...record}
 updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>); 
   
 ```
-  Above we have passed all the props that handle a single record from our ```Protected``` component, maped each Record and return as  ```renderRecord ```. 
+  Above we have passed all the props that handle a single record from our ```Protected``` component, mapped each Record and return as  ```renderRecord ```. 
   
-  Logic for sorting Record list is managed by ```ShowRecord``` component and replacing ```this.props.records``` with sorted list. The codes looks as following:
+  Logic for sorting Record list is managed by ```ShowRecord``` component and replacing ```this.props.records``` with sorting list. The codes look as following:
   
   ``` sortByName() {
 
@@ -323,60 +323,46 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
         this.setState({isSorted: true})
     } ```
     
-    We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.
+    We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.  
+ 
+ Finally, lets take a look at how we will AJAX the list of record with ```axios``` in our Rails API.
+ 
+ ```
+     backendCall() {
+        var config = {
+            headers: {'Authorization': "Bearer " + localStorage.getItem('jwt')}
+        };
+        
+        axios.get('https://arcane-oasis-17502.herokuapp.com/records', 
+        config
+        )
+            .then((response) => {
+            this.updateState(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+    }
+    updateState(response){
+        this.setState({
+            listRecord: response.data
+        });
+
+    }
             
+ ``` 
+ In the above code we made a function name ``` backendCall()```. This method sends get request to our base url with ```/records``` but ```axios``` takes config as second argument for get request so we build config as : 
+ 
+ ```headers: {'Authorization': "Bearer " + localStorage.getItem('jwt')}```. 
+ 
+ Here we fetched jwt from local storage and attached with Bearer for authorization in header of our request.
+ 
+ The promise ```.then``` handles the response or error and finally response data is updated to the ```listRecord``` with ```setState```.
+ 
+ Almost, the same process is repeated for ```Post```, ```Update``` and ```Delete``` Record. Axios have great [guide to follow](https://github.com/mzabriskie/axios) for these AJAX request.
+ 
+ Finally our tour to React on Rails API is completed. Here is the [DEMO](http://afraid-bedroom.surge.sh/) App as final product of this tutorial. 
+ 
                                                       
                                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-You can use the [editor on GitHub](https://github.com/surajneupane55/React-on-Rails-API-guide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](React-on-Rails-API-guide/react_on_rails_api.ea73eaa4.png)
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/surajneupane55/React-on-Rails-API-guide/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
