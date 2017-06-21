@@ -103,7 +103,7 @@ class RecordsController < ApplicationController
 
 ### Pushing the API to HEROKU cloud
 
-The easiest way to test our API is to deploy it to the cloud platform. I am using Heroku Cloud. It is farely simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
+The easiest way to test our API is to deploy it to the cloud platform. I am using Heroku Cloud. It is fairly simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
 Here is the API of this [demo API application](https://arcane-oasis-17502.herokuapp.com/) which 
 sounds crazy but it says page can't be found. But, it makes sense we have not implemented any view so the API can't serve us any view.
@@ -165,6 +165,16 @@ HTTP/1.1 401 Unauthorized
 Finally we have successfully built an JSON API deployed it to Heroku cloud and it is ready to serve our React application.
 
 # The new world of React
+
+When I started this project I was totally new to React. I didn't know much about the core concept. I was confused either to use some architect like flux or redux. The truth is, I was overwhelmed with lots of information. But, eventually when all this information settled, React was one fun concept that circle around ´´´props´´´ and ´´´state´´´ . Although, I have made a similar CRUD single page todo application(https://radiant-coast-44956.herokuapp.com/) on angularjs but the experience was much fun and easy with React technology.
+
+As a beginner, we should follow React official document(https://facebook.github.io/react/) and video tutorials. Starting point is to clone the ```create-react-app```. 
+
+The concept of Component and virtual DOM makes the React stand alone from other javascript library. Component are the building blocks of React app where each feature is segregated from one another.
+
+In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So we will have two  
+
+
 
 
 
