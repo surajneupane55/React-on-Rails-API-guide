@@ -174,6 +174,7 @@ The concept of Component and virtual DOM makes the React stand alone from other 
 
 In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app.  
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 
 
