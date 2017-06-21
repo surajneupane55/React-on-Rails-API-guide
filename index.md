@@ -212,13 +212,12 @@ export default class Layout extends React.Component {
 
 ```
 
-It is parent to static component view like ```Body``` and ```Footer``` and ```Header``` with ```Links```
+It is parent to static component view like ```Body```, ```Footer``` and ```Header``` with ```Links```
 
 Lets take a moment to look how ```Header``` component is organised:
 
-``` import React from 'react';
+```import React from 'react';
 import { Link } from 'react-router-dom'
-
 
 export default class Header extends React.Component {
     render() {
