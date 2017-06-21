@@ -174,7 +174,7 @@ The concept of Component and virtual DOM makes the React stand alone from other 
 
 In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, lets follow the architect of application from UML diagram below:   
 
-![Image of Yaktocat]
+![react_on_rails_api]
 (React-on-Rails-API-guide/react_on_rails_api.ea73eaa4.png)
 
 
