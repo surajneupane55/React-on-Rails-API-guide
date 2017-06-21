@@ -105,7 +105,7 @@ class RecordsController < ApplicationController
 
 The easiest way to test our API is to deploy it to the cloud platform. I am using Heroku Cloud. It is farely simple to implement with the guide from [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
-Here is the API of this [demo application](https://boiling-scrubland-97450.herokuapp.com/) which 
+Here is the API of this [demo API application](https://arcane-oasis-17502.herokuapp.com/) which 
 sounds crazy but it says page can't be found. But, it makes sense we have not implemented any view so the API can't serve us any view.
 
 But, let's create a new user in  ``` heroku console ```
