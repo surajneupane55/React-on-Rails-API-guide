@@ -315,7 +315,11 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
         var itemsList = [];
         _.map(this.props.records, (record) => itemsList.push(record));
         itemsList.sort(function (a, b) {
-            return a.username.toLowerCase() > b.username.toLowerCase()
+         
+         //join first+last name and apply toLowerCase and compare
+         
+      return (a.username.replace(/\s+/g, "").toLowerCase() <b.username.replace(/\s+/g, "").toLowerCase()) ? -1 :                     (a.username.replace(/\s+/g, "").toLowerCase() > b.username.replace(/\s+/g, "").toLowerCase()) ? 1 : 0;
+
         });
         return itemsList;
 
