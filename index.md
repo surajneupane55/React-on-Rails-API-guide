@@ -8,6 +8,8 @@ TL;DR
 
 [Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
+[DEMO](http://afraid-bedroom.surge.sh/)
+
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will walk you through the experience I encountered during building a simple React on Rails API. 
 
@@ -364,5 +366,8 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
  
  Finally our tour to React on Rails API is completed. Here is the [DEMO](http://afraid-bedroom.surge.sh/) App as final product of this tutorial. 
  
+ 
+ ## 22.6.2017
+ - Suraj Neupane
                                                       
                                                            
