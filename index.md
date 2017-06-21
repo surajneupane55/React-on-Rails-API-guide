@@ -172,9 +172,9 @@ As a beginner, we should follow [React official document](https://facebook.githu
 
 The concept of Component and virtual DOM makes the React stand alone from other javascript library. Component are the building blocks of React app where each feature is segregated from one another.
 
-In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app.  
+In this application we are going to CURD the Record resource from our Rails API. But as we know Record is secured resource we must ask for valid JWT from our React app. So, lets follow the architect of application from UML diagram below:   
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](React-on-Rails-API-guide/react_on_rails_api.ea73eaa4.png)
 
 
 
