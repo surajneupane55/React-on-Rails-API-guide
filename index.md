@@ -309,8 +309,8 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
   Above we have passed all the props that handle a single record from our ```Protected``` component, mapped each Record and return as  ```renderRecord ```. 
   
   Logic for sorting Record list is managed by ```ShowRecord``` component and replacing ```this.props.records``` with sorting list. The codes look as following:
-  
-  ``` 
+
+``` 
   sortByName() {
   var itemsList = [];
   _.map(this.props.records, (record) => itemsList.push(record));
