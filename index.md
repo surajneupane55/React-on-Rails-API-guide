@@ -6,17 +6,23 @@ TL;DR
 
 [Github rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth)
 
-[Github React-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
+[Github react-frontend](https://github.com/surajneupane55/react-app-challenge-frontend)
 
 [DEMO](http://uppity-polish.surge.sh/)
 
 # Installation guide to local machine
 
-Clone [this](https://github.com/surajneupane55/react-app-challenge-frontend) repository as well as the [server](https://github.com/surajneupane55/rails-json-api-jwt-auth) for this example.
+Clone [react-frontend](https://github.com/surajneupane55/react-app-challenge-frontend) repository as well as the [rails-json-api](https://github.com/surajneupane55/rails-json-api-jwt-auth) for this example.
 
-First, run the server app in the port 3001. ```rails s -p 3001``` 
+First, run the server app in the port 3001. ```rails s -p 3001```
+If server is successfully running exit the server and navigate to console and create a new user as following:
 
-Then, run npm install on this project and run ```npm start``` watch to start the app. Then just navigate to http://localhost:3000
+```Rails console``` 
+```User.create(email:'abc@123.com', password:'securepassword')```
+Exit console and run your API server again ```rails s -p 3001```
+
+
+Then, run npm install on react-frontend project and run ```npm start``` watch to start the app. Then just navigate to http://localhost:3000
 
 
 # A guide to build React on Rails API 
