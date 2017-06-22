@@ -26,7 +26,7 @@ Exit console and run your API server again.
 ```rails s -p 3001```
 
 
-Then, run npm install on react-frontend project and run ```npm start``` watch to start the app. Then just navigate to ```http://localhost:3000```
+Then, run ```npm install```  on react-frontend project and run ```npm start``` watch to start the app. Then just navigate to ```http://localhost:3000```
 
 
 # A guide to build React on Rails API 
