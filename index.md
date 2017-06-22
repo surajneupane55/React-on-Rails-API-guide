@@ -10,6 +10,17 @@ TL;DR
 
 [DEMO](http://uppity-polish.surge.sh/)
 
+# Installation guide to local machine
+
+Clone [this](https://github.com/surajneupane55/react-app-challenge-frontend) repository as well as the [server](https://github.com/surajneupane55/rails-json-api-jwt-auth) for this example.
+
+First, run the server app in the port 3001. ```rails s -p 3001``` 
+
+Then, run npm install on this project and run ```npm start``` watch to start the app. Then just navigate to http://localhost:3000
+
+
+# A guide to build React on Rails API 
+
 
 Building a complete application with API is always a challenging job since every element must connect and work as intended. This guide will walk you through the experience I encountered during building a simple React on Rails API. 
 
