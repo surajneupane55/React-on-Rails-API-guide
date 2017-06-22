@@ -349,7 +349,8 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
     sortedList() {
         this.setState({isSorted: true})
     } 
-    ```
+  
+```
     
  We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.  
  
