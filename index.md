@@ -17,12 +17,16 @@ Clone [react-frontend](https://github.com/surajneupane55/react-app-challenge-fro
 First, run the server app in the port 3001. ```rails s -p 3001```
 If server is successfully running exit the server and navigate to console and create a new user as following:
 
-```Rails console``` 
+```Rails console```
+
 ```User.create(email:'abc@123.com', password:'securepassword')```
-Exit console and run your API server again ```rails s -p 3001```
+
+Exit console and run your API server again. 
+
+```rails s -p 3001```
 
 
-Then, run npm install on react-frontend project and run ```npm start``` watch to start the app. Then just navigate to http://localhost:3000
+Then, run npm install on react-frontend project and run ```npm start``` watch to start the app. Then just navigate to ```http://localhost:3000```
 
 
 # A guide to build React on Rails API 
