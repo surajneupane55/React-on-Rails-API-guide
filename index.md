@@ -392,7 +392,7 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
  Finally our tour to React on Rails API is completed. Here is the [DEMO](http://uppity-polish.surge.sh/) App as final product of this tutorial. 
  
  
-  # 22.6.2017
-  # Suraj Neupane
+   22.6.2017
+   Suraj Neupane
                                                       
                                                            
