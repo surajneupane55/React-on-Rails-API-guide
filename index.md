@@ -260,7 +260,7 @@ export default class Header extends React.Component {
     }
 }
 ```
-#Evolution of React Router v4
+# Evolution of React Router v4
 
 React Router v4 was just realized when I started this project. Although, there was not much blog support written by public, however [react training](https://reacttraining.com/react-router/web/guides/philosophy) site is the best place to start. React Router now is imported from ```react-router-dom``` where ```history``` from ```createBrowserHistory``` is passed as props and can be accessed from another component. Also, all our routes are now stacked inside ```<Router> ``` irrespective of protected component or not. There is a new way to authenticate ```Route```. i.e ```<Redirect>```. Now lets look our ```index.js``` after implementing above React Router feature:
  
@@ -348,9 +348,10 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
 
     sortedList() {
         this.setState({isSorted: true})
-    } ```
+    } 
+    ```
     
-    We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.  
+ We have managed state ```isSorted``` to pass proper ```props``` that handels the sorted Record list.  
  
  Finally, lets take a look at how we will AJAX the list of record with ```axios``` in our Rails API.
  
@@ -379,7 +380,7 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
     }
             
  ``` 
- In the above code we made a function name ``` backendCall()```. This method sends get request to our base url with ```/records``` but ```axios``` takes config as second argument for get request so we build config as : 
+ In the above code we made a function name ``` backendCall()```. This method sends get request to our base url with       ```/records``` but ```axios``` takes config as second argument for get request so we build config as : 
  
  ```headers: {'Authorization': "Bearer " + localStorage.getItem('jwt')}```. 
  
