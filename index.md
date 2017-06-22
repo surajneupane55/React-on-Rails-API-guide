@@ -285,8 +285,7 @@ We can see above how we have defined ```<Redirect>``` inside ```<Route>``` and c
 
 ```loggedIn```method is defined inside ```LoginAction``` component. Its main task is to make sure the user has valid JWT token stored in local storage. The ```loggedIn``` method looks like this:
 
-```
-export default {
+```export default {
 
     loggedIn: () => {
         let jwt = localStorage.getItem('jwt');
@@ -371,7 +370,7 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
  Finally our tour to React on Rails API is completed. Here is the [DEMO](http://uppity-polish.surge.sh/) App as final product of this tutorial. 
  
  
- ## 22.6.2017
- - Suraj Neupane
+  # 22.6.2017
+  # Suraj Neupane
                                                       
                                                            
