@@ -286,9 +286,9 @@ We can see above how we have defined ```<Redirect>``` inside ```<Route>``` and c
 
 ```loggedIn```method is defined inside ```LoginAction``` component. Its main task is to make sure the user has valid JWT token stored in local storage. The ```loggedIn``` method looks like this:
 
-```export default {
-
-    loggedIn: () => {
+```
+export default {
+loggedIn: () => {
         let jwt = localStorage.getItem('jwt');
         if (jwt !== null) {
             return true;
@@ -310,7 +310,8 @@ updateRecord={this.props.updateRecord} deleteRecord={this.props.deleteRecord}/>)
   
   Logic for sorting Record list is managed by ```ShowRecord``` component and replacing ```this.props.records``` with sorting list. The codes look as following:
   
-  ``` sortByName() {
+  ``` 
+  sortByName() {
 
         var itemsList = [];
         _.map(this.props.records, (record) => itemsList.push(record));
